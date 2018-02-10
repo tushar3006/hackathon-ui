@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="15px" viewBox="0 0 10 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Location Icon Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5,0.333333333 C2.42,0.333333333 0.333333333,2.42 0.333333333,5 C0.333333333,8.5 5,13.6666667 5,13.6666667 C5,13.6666667 9.66666667,8.5 9.66666667,5 C9.66666667,2.42 7.58,0.333333333 5,0.333333333 L5,0.333333333 Z M5,6.66666667 C4.08,6.66666667 3.33333333,5.92 3.33333333,5 C3.33333333,4.08 4.08,3.33333333 5,3.33333333 C5.92,3.33333333 6.66666667,4.08 6.66666667,5 C6.66666667,5.92 5.92,6.66666667 5,6.66666667 L5,6.66666667 Z" id="path-1"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.200000003" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.508503401   0 0 0 0 0.508503401   0 0 0 0 0.508503401  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Visual-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Take-Order-_3_2" transform="translate(-824.000000, -397.000000)">
+            <g id="Overflow-Menu" transform="translate(801.000000, 303.000000)">
+                <g id="Location-Icon-Copy" transform="translate(16.000000, 89.000000)">
+                    <g id="Location_Icon" transform="translate(7.000000, 5.000000)">
+                        <g id="Shape">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#7F7F7F" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

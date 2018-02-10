@@ -1,0 +1,81 @@
+@import '../../vars';
+
+.userAddress {
+	background-color: #fff;
+	border: 1px solid rgba(151, 151, 151, 0.3);
+	padding-bottom: 2rem;
+	.addAddressItem {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+		border: 1px dashed rgba(151, 151, 151, 0.3);
+		padding: 1.5rem 2rem 1.5rem 2rem;
+		margin: 0 2rem;
+        .addNewAddressPadding {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5rem;
+			margin-bottom: 5rem;
+			font-size: 1.5rem;
+        }
+	}
+    .myAddresses {
+        padding: 1.5rem 1.5rem 0 1.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+    .borderBottomAddress {
+        opacity: 0.3;
+        margin: 0 1.5rem 1.5rem 1.5rem;
+        border-bottom: 1px solid #979797;
+    }
+    // border: 1px solid #DDDDDD;
+    .addressItemContainer {
+        .addressContainerItem {
+            margin: 0 1.5rem 1.5rem 1.5rem;
+			// margin: 0 1rem;
+            border: 1px solid #DDD;
+            .loader {
+                position: absolute;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+        .addressHeader {
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: #2D2D2D;
+			display: flex;
+			cursor: pointer;
+			border-bottom: 1px solid rgba(151, 151, 151, 0.3);
+			i {
+				font-size: 2.2rem;
+			}
+        }
+        .addressItem {
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: #2D2D2D;
+			border-bottom: 1px solid rgba(151, 151, 151, 0.3);
+        }
+		.addressItemPadding {
+			padding: 1.5rem 2rem 1.5rem 2rem;
+		}
+		.operations {
+			display: flex;
+			font-size: 1.5rem;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			.remove {
+				color: $removeTextColor;
+				cursor: pointer;
+			}
+			.edit {
+				cursor: pointer;
+			}
+		}
+    }
+}

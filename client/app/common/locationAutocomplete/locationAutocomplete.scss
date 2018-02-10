@@ -1,0 +1,49 @@
+@import '../../_vars.scss';
+.locationAutoComplete {
+    .inputContainer {
+        padding: 2px 0px 0px 0px;
+    }
+    input {
+        height: 43px !important;
+        border-radius: 2px !important;
+        box-shadow: none !important;
+    }
+    ul {
+        // top: -45px !important;
+        border: 1px solid rgb(199, 199, 199) !important;
+        border-radius: 0px;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+        max-height: 256px !important;
+        min-height: 48px !important;
+        overflow-y: hidden;
+        color: #c7c7c7;
+        li {
+            padding: 10px 0 !important;
+            min-height: 30px !important;
+            a {
+                color: rgb(51, 51, 51) !important;
+            }
+        }
+        li:hover {
+            background-color: rgba(215, 215, 215, 0.19) !important;
+        }
+    }
+    .noresults {
+        color: #000;
+    }
+    .spinner {
+        position: absolute;
+        top: 1rem;
+        border-right-color: transparent;
+        right: 1rem;
+    }
+    .dropdown-menu {
+        width: 95%;
+    }
+    .dropdown-menu > .active > a,
+    .dropdown-menu > .active > a:hover,
+    .dropdown-menu > .active > a:focus {
+        background-color: inherit;
+        color: $primaryFg;
+    }
+}

@@ -1,0 +1,41 @@
+<div class="userAddress">
+    <div class="myAddresses">My Addresses</div>
+    <div class="borderBottomAddress"></div>
+    <div class="row">
+        <!-- <div class="col-xs-12 col-md-6 addressItemContainer" ng-repeat="address in vm.addresses">
+            <div class="addressContainerItem">
+                <div ng-click="vm.selectAddress(address)" class="addressHeader addressItemPadding">
+                    {{address.addressType}}
+					<div class="spacer"></div>
+					<div ng-if="vm.isSelector">
+						<i ng-class="{'primaryColor selected': $index === vm.selectedAddressIndex}" class="fa fa-check-circle"></i>
+					</div>
+                </div>
+                <div class="addressItem addressItemPadding">
+                    <div>{{address.address1}}</div>
+                    <div>{{address.address2}}</div>
+                    <div>{{address.city}}</div>
+                </div>
+                <div class="operations addressItemPadding">
+                    <div ng-click="vm.deleteAddress(address)" class="remove">{{::vm.STRINGS.REMOVE}}</div>
+                    <div ng-click="vm.editAddress(address)" class="edit">{{::vm.STRINGS.EDIT}}</div>
+                </div>
+                <div class="loader" ng-show="address.showLoader">
+
+                </div>
+            </div>
+        </div> -->
+        <div class="col-xs-12 col-md-6" ng-click="vm.addAddress()">
+            <div class="addAddressItem" >
+                <div class="addNewAddressPadding">
+                    <div class="btn btn-primary"><i class="fa fa-plus"></i></div>
+                    <div>Add new address</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+<address-edit></address-edit>
+</div>

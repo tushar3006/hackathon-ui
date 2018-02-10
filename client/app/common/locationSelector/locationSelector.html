@@ -1,0 +1,73 @@
+<div class="locationSelector container-fluid">
+    <div class="row">
+        <div class="delivery" ng-show="vm.orderType === vm.AppConstants.DELIVERY_SERVICE_ID">
+            <div class="col-md-4 col-xs-12 no-p-r ">
+                <ui-select on-select="vm.onDeliveryCitySelected($item, $model)" ng-model="vm.selectedDeliveryCity" theme="selectize" ng-disabled="" class="selectOptions citySelector " title="{{::vm.STRINGS.SELECT_CITY_PLACEHOLDER}}">
+                    <ui-select-no-choice>
+                        <div style="text-align: center;">{{::vm.STRINGS.NO_RESULTS}}</div>
+                    </ui-select-no-choice>
+                    <ui-select-match placeholder="{{::vm.STRINGS.SELECT_CITY_PLACEHOLDER}}">{{$select.selected.cityName}}</ui-select-match>
+                    <ui-select-choices repeat="city in vm.deliveryCities | filter:  { cityName: $select.search } | orderBy: 'cityName'">
+                        <div class="col-md-2 col-sm-2 no-padding">
+                        <img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/City.svg" />
+                        </div>
+                        <div class="col-md-10 col-sm-10 no-padding" ng-bind-html="city.cityName | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <!-- <md-input-container class="col-xs-12 col-md-6 citySelector" md-no-float>
+                <md-select ng-model="vm.selectedDeliveryCityId" ng-change="vm.onDeliveryCitySelected(vm.selectedDeliveryCityId)" placeholder="Select a City" class="selectOption">
+                    <md-optgroup label="Select City">
+                        <md-option ng-value="city.cityId" ng-repeat="city in vm.deliveryCities">
+                            <img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/City.svg" /> {{city.cityName}}
+                        </md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container> -->
+            <location-autocomplete selected-address="vm.selectedLocation" disabled="vm.addressSearchDisabled" class="col-xs-12 col-md-8 localitySelector no-p-l" on-select-address="vm.onSelectLocation(item, model, label)" city="vm.selectedDeliveryCity" placeholder="vm.STRINGS.SELECT_LOCALITY_PLACEHOLDER">
+            </location-autocomplete>
+        </div>
+    </div>
+    <div ng-if="vm.errorMessage" class="row errorMessage">
+        <div><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{vm.errorMessage}}</div>
+    </div>
+    <div class="selectButtons" ng-if="!vm.showPreOrderSelector">
+        <!--<div class="col-md-1 col-xs-12"></div>-->
+        <div class="col-xs-12 col-md-6 text-center paddingrtl-10">
+            <button ng-click="vm.orderNow()" ng-class="{'btn-disabled':vm.orderNowDisabled}" ng-disabled="vm.orderNowDisabled" class="btn btn-primary btn-lg fit">
+                {{::vm.STRINGS.ORDER_NOW}}
+            </button>
+        </div>
+        <div class="col-xs-12 col-md-6 text-center ">
+            <button ng-click="vm.openPreOrderSelector()" ng-class="{'btn-disabled':vm.orderForLaterDisabled}" ng-disabled="vm.orderForLaterDisabled" class="btn btn-primary btn-lg col-xs-12 orderLaterBtn col-md-6 fit">{{::vm.STRINGS.ORDER_FOR_LATER}}
+            </button>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-12  preOrderSelector" ng-if="vm.showPreOrderSelector">
+            <div class="text-right"><i ng-click="vm.showPreOrderSelector = 0" class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="preOrderContainer">
+                <span ng-click="vm.openDatePicker()"><i class="fa fa-3x fa-calendar-o"></i></span>
+                <div ng-click="vm.openDatePicker()" ng-model="vm.selectedDate" uib-datepicker-popup="dd-MMMM-yyyy" show-button-bar="false" is-open="vm.datePickerOpened" datepicker-options="vm.dateOptions" class="pick pickDate">{{(vm.selectedDate | date: 'd MMM y') || 'Pick Date' }}
+                </div>
+                <div class="flex" uib-dropdown>
+                    <span ng-click="vm.openTimePicker()"><i class="fa fa-3x fa-clock-o"></i></span>
+                    <div ng-click="vm.openTimePicker()" uib-dropdown-toggle class="pick pickTime">{{vm.selectedTimeSlot? ((vm.selectedTimeSlot.start | date: 'h:mm a') + ' - ' + (vm.selectedTimeSlot.end | date: 'h:mm a')):'Pick Time'}}
+                    </div>
+                    <ul class="dropdown-menu timeDropdown" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
+                        <li role="menuitem" ng-repeat="slot in vm.datesMap[vm.selectedDate.getTime()]">
+                            <a href="" ng-click="vm.onSelectTime(slot)">{{slot.start | date: 'h:mm a'}} - {{slot.end |
+                                date: 'h:mm a'}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-click="vm.orderForLater()" class="pick order primaryColor" ">Go to Menu</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="vm.showLoader" class="loader">
+    Loading
+</div>
+<!--<div  ng-if="vm.showPreOrderSelector" ng-click="vm.showPreOrderSelector=false" class="overlay"></div>-->
+</div>

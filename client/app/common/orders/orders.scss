@@ -1,0 +1,35 @@
+@import '../../_vars.scss';
+.orders {
+	position: relative;
+	min-height: 10vh;
+	background: #fff;
+	padding: 1rem 0;
+	// padding: 2rem;
+	// border: 1px solid #ddd;
+	// border-radius: 3px;
+
+	.spinner {
+		// border-color:
+		height: 4rem;
+		width: 4rem;
+		margin-left: 50%;
+	}
+
+	.orderHeading {
+		padding: 1.25rem;
+		font-size: 1.3rem;
+		.glyphicon {
+			padding-right: 1rem;
+		}
+		font-weight: bold;
+		.mute {
+			font-weight: normal;
+		}
+	}
+	.panel-default > .panel-heading {
+		background-color: $primaryFg;
+	}
+}
+.col-half-offset{
+    margin-left:4.166666667%
+}

@@ -1,0 +1,100 @@
+<div class="deliveryAddress">
+    <div class="head row">
+        <div class="component col-md-6 col-sm-6 text-left">{{!vm.addNewAddress?'Choose Address':'Add New Address'}}</div>
+        <div class="component col-md-6 ol-sm-6 text-right" ng-if="!vm.addNewAddress">
+            <button ng-click="vm.showAddAddress(1)">ADD NEW ADDRESS</button>
+        </div>
+    </div>
+    <div class="body row text-center" ng-hide="vm.addNewAddress">
+        <div ng-repeat="delivery in vm.deliveryAddresses track by $index" class="components" ng-show="vm.counter == $index">
+            <div class="component text-left left" ng-show="vm.deliveryAddresses[vm.counter]">
+                <div style="position:absolute;top:24%;left:0;" ng-mouseenter="showBack = 1" ng-hide="showBack || vm.counter == 0"><img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/Back-1.svg" /></div>
+                <div style="position:absolute;top:24%;left:0;" ng-mouseleave="showBack = 0" ng-click="vm.scroll(-2)" ng-show="showBack"><img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/Back-2.svg" /></div>
+                <span class="tick1" ng-show="vm.counter === vm.selectedDeliveryAddressIndex">
+                    <img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/Selected.svg">
+                </span>
+                <div class="address" ng-class="{'activeAddress':vm.counter === vm.selectedDeliveryAddressIndex}" ng-click="vm.selectAddress(vm.deliveryAddresses[vm.counter])">
+                    <div>{{vm.deliveryAddresses[vm.counter].address1 }}</div>
+                    <div>{{vm.deliveryAddresses[vm.counter].address2}}</div>
+                    <div>{{vm.deliveryAddresses[vm.counter].city }}</div>
+                    <hr/>
+                    <div class="col-md-6 col-sm-6 text-center danger" ng-click="vm.deleteAddress(vm.deliveryAddresses[vm.counter].addressId,$event)">Remove</div>
+                    <div class="col-md-6 col-sm-6 text-center primary" ng-click="vm.changeAddress(vm.deliveryAddresses[vm.counter],$event)">Edit</div>
+                </div>
+            </div>
+            <div class="component text-left right" ng-show="vm.deliveryAddresses[vm.counter+1]">
+                <div style="position:absolute;top:24%;right:0;" ng-hide="showNext || vm.counter == vm.deliveryAddresses.length-2" ng-mouseenter="showNext = 1"><img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/Next-2.svg" /></div>
+                <div style="position:absolute;top:24%;right:0;" ng-mouseleave="showNext = 0" ng-click="vm.scroll(2)" ng-show="showNext"><img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/next-orange.svg" /></div>
+                <span class="tick2" ng-show="vm.counter+1 === vm.selectedDeliveryAddressIndex">
+                    <img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/Selected.svg">
+                </span>
+                <div class="address" ng-class="{'activeAddress':vm.counter+1 === vm.selectedDeliveryAddressIndex}" ng-click="vm.selectAddress(vm.deliveryAddresses[vm.counter+1])">
+                    <div>{{vm.deliveryAddresses[vm.counter+1].address1 }}</div>
+                    <div>{{vm.deliveryAddresses[vm.counter+1].address2}}</div>
+                    <div>{{vm.deliveryAddresses[vm.counter+1].city }}</div>
+                    <hr/>
+                    <div class="col-md-6 col-sm-6 text-center danger" ng-click="vm.deleteAddress(vm.deliveryAddresses[vm.counter+1].addressId,$event)">Remove</div>
+                    <div class="col-md-6 col-sm-6 text-center primary" ng-click="vm.changeAddress(vm.deliveryAddresses[vm.counter+1],$event)">Edit</div>
+                </div>
+            </div>
+        </div>
+        <div id="addressDetails">
+            <textarea rows="4" cols="50" ng-model="vm.deliveryComment"  placeholder="Enter delivery instructions if any ( Optional )"></textarea>
+        </div>
+        <div class="text-right buttons">
+            <button class="btn  cancel" ng-click="vm.close()">CANCEL</button>
+            <button class="btn save" ng-click="vm.updateDeliveryAddress($event)" ng-disabled="!(vm.selectedDeliveryAddressIndex >= 0)">SAVE</button>
+        </div>
+    </div>
+    <!-- <user-address ></user-address> -->
+    <div class="body" ng-show="vm.addNewAddress">
+        <form name="addressForm" id="addressForm" novalidate>
+            <div class="form-group" ng-show="vm.isNewUser">
+                <label for="FullName">Full Name</label>
+                <input type="text" ng-required="vm.isNewUser" class="form-control" id="name" ng-model="vm.address.userName">
+            </div>
+            <div class="form-group" ng-show="vm.isNewUser">
+                <label for="email">Email</label>
+                <input type="email" ng-required="vm.isNewUser" class="form-control" id="email" ng-model="vm.address.email">
+            </div>
+            <div class="form-group">
+                <label for="hno">City</label>
+                <md-input-container md-no-float class="col-md-12 citySelector" ng-disabled="true">
+                    <md-select ng-disabled="true" ng-model="vm.selectedCityId" ng-change="vm.onCitySelected(selectedCityId)" placeholder="Select a City" class="selectOption">
+                        <md-optgroup label="Select City">
+                            <md-option ng-value="city.cityId" ng-repeat="city in vm.deliveryCities">
+                                <img src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/City.svg" /> {{city.cityName}}
+                            </md-option>
+                        </md-optgroup>
+                    </md-select>
+                </md-input-container>
+                <!-- <select class="form-control" ng-required="true" ng-model="vm.selectedCityId" ng-change="vm.onCitySelected(selectedCityId)">
+    <option ng-value="city.cityId" ng-repeat="city in vm.deliveryCities">{{vm.selectedCityId === city.cityId}}{{city.cityName}}</option>
+</select>
+ -->
+            </div>
+            <div class="form-group">
+                <label for="hno">Building/House Number</label>
+                <input type="text" ng-required="true" class="form-control" id="hno" ng-model="vm.address.address1">
+            </div>
+            <div class="form-group">
+                <label for="locality">Street & Locality</label>
+                <location-autocomplete selected-address="vm.address.locality" disabled="true" class="locationAuto" city="vm.address.city">
+            </div>
+            <div class="form-group" class="addressTypeWrapper">
+                <label for="locality">Address Type</label>
+                <div>
+                    <span ng-repeat="type in vm.addressTypes" class="addressType text-center" ng-class="{activeAddress: vm.address.addressType == type}" ng-click="vm.onAddressTypeSelected(type)">{{type}}</span>
+                </div>
+            </div>
+            
+            <div ng-if="vm.errorMessage" class="row errorMessage">
+                <div><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{vm.errorMessage}}</div>
+            </div>
+            <div class="text-right buttons">
+                <button class="btn  cancel" ng-click="vm.showAddAddress(0)">CANCEL</button>
+                <button class="btn save" ng-disabled="!addressForm.$valid || !vm.address.locality" ng-click="vm.submitAddress(vm.address)">SAVE</button>
+            </div>
+        </form>
+    </div>
+</div>

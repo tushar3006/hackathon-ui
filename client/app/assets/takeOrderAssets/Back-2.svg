@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Back - 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="16" cy="16" r="16"></circle>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0935518569 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Visual-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Choose-Delivery-Address-1" transform="translate(-490.000000, -270.000000)">
+            <g id="Choose-Address" transform="translate(478.000000, 148.000000)">
+                <g id="Back---2" transform="translate(32.000000, 140.000000) scale(-1, 1) translate(-32.000000, -140.000000) translate(16.000000, 124.000000)">
+                    <g id="Oval-4">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Shape" transform="translate(16.000000, 16.000000) scale(-1, 1) rotate(90.000000) translate(-16.000000, -16.000000) translate(4.000000, 4.000000)" fill="#F28120" fill-rule="nonzero">
+                        <polygon points="16.585 8.25 12 12.835 7.415 8.25 6 9.665 12 15.665 18 9.665"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

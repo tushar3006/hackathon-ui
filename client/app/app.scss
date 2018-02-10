@@ -1,0 +1,43 @@
+@import 'vars';
+@import 'common/common';
+$fa-font-path: "../../node_modules/font-awesome/fonts/" !default;
+@import "../../node_modules/font-awesome/scss/font-awesome";
+.app {
+    min-height: 100%;
+    
+    > div {
+        min-height: 100%;
+        display: table;
+        width: 100%;
+    }
+}
+
+// SHELL CSS MODIFICATIONS
+.ltd-content {
+    overflow: visible !important;
+    position: absolute !important;
+    width : calc(100% - 220px) !important;
+    right: 0px; 
+}
+
+.ltd-header {
+    z-index: 100 !important;
+    position: fixed !important;
+    width: 100% !important;
+}
+
+.ltd-left-nav {
+    position: fixed !important;
+    top: 57px !important;
+}
+
+.ltd-title-bar {
+    position: fixed !important;
+    top: 57px !important;
+    width: 100% !important;
+    z-index: 100 !important;
+}
+
+:focus {
+    outline: none;
+}

@@ -1,0 +1,102 @@
+.orderBox {
+	padding: 1rem;
+	text-align: left;
+	.orderBoxContainer {
+		.itemContainer {
+			width: 30%;
+			display: flex;
+			flex-direction: column;
+			border: 1px solid rgba(151,151,151,0.40);
+			border-radius: 2px;
+			.header {
+				border-bottom: 1px solid rgba(151,151,151,0.40);
+			}
+			.item {
+				font-size: 1.2rem;
+				padding: 1rem;
+				.name {
+					width: 50%;
+				}
+			}
+			.summary {
+				text-align: right;
+				font-size: 1.4rem;
+				padding: 1rem;
+				background: #F8F8F8;
+				font-weight: bold;
+			}
+		}
+		.trackerContainer {
+			width: 70%;
+			.status {
+				font-size: 1.6rem;
+				color: #E2231A;
+				font-weight: bold;
+				display: flex;
+				justify-content: center;
+				margin-bottom: 1rem;
+			}
+			.query {
+				font-size: 1.4rem;
+				display: flex;
+				justify-content: center;
+				.number {
+					color: #001D00;
+					font-weight: bold;
+				}
+			}
+			.tracker {
+				padding: 2rem;
+				display: flex;
+				justify-content: center;
+				.circle {
+					background: #FFFFFF;
+					border: 2px solid #B4B4B4;
+					border-radius: 50%;
+					width: 7vh;
+					height: 7vh;
+				}
+				.lineContainer {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				.line {
+					width: 14vh;
+					height: 2px;
+					margin-bottom: 2rem;
+					background: #B4B4B4;
+				}
+				.statusText {
+					font-size: 1.1rem;
+					padding: 0.5rem;
+					text-align: center;
+				}
+			}
+
+			.addressContainer {
+				justify-content: center;
+				.header {
+					padding: 1rem 6rem;
+					font-size: 1.6rem;
+					font-weight: bold;
+					background: #E2231A;
+					color: #fff;
+				}
+				.address {
+					margin: 2rem;
+					width: 35%;
+					background: #F8F8F8;
+					border: 1px solid rgba(0,0,0,0.11);
+					border-radius: 3px;
+					.addressText {
+						padding: 1.5rem;
+					}
+					.addressItem {
+						font-size: 1.3rem;
+					}
+				}
+			}
+		}
+	}
+}

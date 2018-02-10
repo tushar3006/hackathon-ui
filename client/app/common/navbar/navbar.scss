@@ -1,0 +1,107 @@
+@import '../../vars';
+
+.navbar {
+	height: $navbarHeight;
+	top: 0;
+	z-index: 900;
+	width: 100%;
+	border-radius: 0 !important;
+	font-size: 1.2rem;
+	.containerWidth {
+		display: flex;
+	}
+	.brand-logo {
+		max-height: $navbarHeight;
+		margin-right: auto;
+		margin-left: 0;
+		cursor: pointer;
+	}
+	.brand-logo-hidden {
+		display: none;
+		@media #{$desktop} {
+			display: block;
+		}
+	}
+
+	.searchIcon {
+		color: $primaryFg;
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+		margin-left: 2rem;
+		@media #{$desktop} {
+			display: none;
+		}
+	}
+
+	.searchInput {
+		margin: 1rem;
+		display: flex;
+		align-items: center;
+		position: relative;
+		.glyphicon {
+			position: absolute;
+			right: 0.5rem;
+			top: 1.5rem;
+			font-size: 1.5rem;
+			color: gray;
+		}
+	}
+
+	.locationIcon {
+		color: $primaryFg;
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+		// margin-left: auto;
+		margin-left: 0;
+		@media #{$desktop} {
+			display: none;
+		}
+	}
+
+	.phoneIcon {
+		color: $primaryFg;
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+		margin-left: auto;
+		margin-right: 15px;
+		@media #{$desktop} {
+			display: none;
+		}
+	}
+
+	.btn.btn-primary.login-button {
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+		margin-right: 0;
+		font-family: $roboto;
+		border: 1px solid #fff;
+	}
+
+	.navbar-button {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		margin-right: 0;
+		display: flex;
+		align-items: center;
+		.dropdownBtn {
+			display: none;
+			@media #{$desktop} {
+				font-family: $roboto;
+				display: block;
+			}
+		}
+		.dropdownIcon {
+			color: $primaryFg;
+			@media #{$desktop} {
+				display: none;
+			}
+		}
+	}
+
+	.dropdown-menu {
+		li {
+			text-align: right;
+			font-size: 1.6rem;
+		}
+	}
+}

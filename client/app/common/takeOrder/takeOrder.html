@@ -1,0 +1,41 @@
+<div class="flex" ng-show="vm.showLoader">
+    <div class="spinner"></div>
+</div>
+<div class="takeOrder">
+    <!-- <input type="number" id="userName" ng-class="{ 'boldest' : vm._dataAvailable == 1}" ng-disabled="vm._dataAvailable" placeholder="Enter Mobile Number" ng-model="vm.userName" ng-keydown="vm.getUserData($event)">
+
+    <div class="sideArrow text-center" ng-click="vm.getUserData($event)" ng-class="{'loading': vm.showProceedLoader}">
+        <img ng-hide="vm.showProceedLoader" src="http://assets.limetray.com/assets/call-centre/assets/app/assets/takeOrderAssets/symbols-forward.png">
+    </div>
+    <div class="row errorMessage" ng-if="vm.invalidError.message">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{vm.invalidError.message}}
+    </div ng-class="{'loading': vm.showProceedLoader}"> -->
+    <div class="takeOrderData">
+        <div class="col-md-12">
+            <div class="section">
+                <div>
+                    <div class=" color-l-gr">{{vm._userDetails.userId ? 'Existing' : 'New' }} Customer </div>
+
+                    <div>{{vm._userDetails.primaryMobile}} <span ng-if="vm._userDetails.fullName"> - {{vm._userDetails.fullName}} </span></div>
+                </div>
+                <div>{{vm.userName}}</div>
+            </div>
+            <div class="section location">
+                <div ng-if="vm._userDetails.userAddresses.length" class=" color-l-gr">
+                Previous Order Locations
+                </div>
+                <button class="locationItem" ng-repeat="location in vm._userDetails.userAddresses" ng-click="vm.onSelectPreviousLocation(location)" ng-class="{ 'activeLocation' : location.locationId === vm.orderSelectedLocation.locationId}">
+                    {{location.locationName}}
+                </button>
+            </div>
+            <div class="section color-l-gr">
+                Select City & Locality
+            </div>
+        </div>
+        <div class="locationSelector">
+            <location-selector on-reset-delivery="vm.resetDeliverySelection(data)" on-select="vm.onSelect(data)" init-data="vm.initData" order-selected-location="vm.orderSelectedLocation">
+            </location-selector>
+        </div>
+    </div>
+    <!-- <div style="font-size:14px; " ng-show="vm._dataAvailable ">{{vm._userDetails}}</div> -->
+</div>

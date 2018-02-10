@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,500,700');
+
+/*font*/
+
+$roboto: 'Roboto', serif; 
+
+
+/* Colors */
+$primaryBg: #EC7801;
+$primaryFg: #ffffff;
+$hoverColor: rgba(236, 120, 1, 0.8);
+$lightBgColor: #F2F2F2;
+$removeTextColor: #E2231A;
+$secondaryBg: #000000;
+$secondaryFg: #ffffff;
+$takeOrderPrimaryBg: #FB8C00;
+
+/* Media queries */
+$desktop: "only screen and (min-width: 1024px)";
+$largeDesktop: "only screen and (min-width: 1824px)";
+
+$containerWidthSm: 98%;
+$containerWidthMd: 98%;
+$containerWidthLg: 98%;
+
+
+$stickyWidthMd: 83.6%;
+$stickyWidthLg: 86.6%;
+ 
+/* Navbar */
+$navbarHeight: 6.5rem;
+$navbarMargins: 0;
+
+/* main */
+$footer_height: 10vh;
+$footer_bg: grey;
+$home_top_height: 80vh;
+$home_height: 50vh;
+$home_background_overlay: rgba(0,0,0,0.6);
+
+/* Hero */
+$heroHeight: 40rem;
+$heroHeightMobile: 50rem;
+
+/*Advert */
+$advertHeight: 40vh;
+$advertCarouselWidth: 65%;
+
+/* Location Selector */
+$locationSelectorFontSize : 1.4rem;
+$locationSelectorLineHeight: 2.2rem;
+
+/*takeOrderDesktop*/
+$takeOrderFontSizeLarge : 2rem;
+$takeOrderInputHeightLarge: 5rem;
+
+/*takeOrderSmall*/
+$takeOrderFontSizeSmall : 2rem;
+$takeOrderInputHeightSmall: 3rem;
+
+
+
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

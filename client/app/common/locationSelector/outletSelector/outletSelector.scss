@@ -1,0 +1,37 @@
+.outletSelector {
+  margin: 12px;
+  .outletsContainer {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  .outlet {
+    cursor: pointer;
+    background: #FBF9F9;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16);
+    border-radius: 2px;
+    margin-top: 1.5vh;
+    margin-right: 12px;
+    padding: 2vh 0;
+    &:hover {
+      background: #F2F1F0;
+    }
+
+    .outletName {
+      font-weight: bold;
+      padding-bottom: 1vh;
+      margin-bottom: 2vh;
+      div {
+        margin: 0 1vw;
+		text-transform: capitalize;
+      }
+      border-bottom: 1px solid rgba(229, 229, 229, 1);
+    }
+
+    .outletAddress {
+      div {
+        margin: 0 1vw;
+		text-transform: capitalize;
+      }
+    }
+  }
+}

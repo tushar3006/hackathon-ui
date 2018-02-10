@@ -1,0 +1,12 @@
+<div class="locationAutoComplete">
+    <!-- <md-input-container  md-no-float>
+  <input type="text" placeholder="Non-Floating Label">
+</md-input-container> -->
+    <div class="col-xs-12 col-md-12 inputContainer">
+        <input class="form-control" type="text" ng-required="vm.isRequired" ng-model="vm.selectedAddress" ng-model-options="{debounce: 300}" ng-disabled="vm.disabled" placeholder="{{vm.placeholder}}" uib-typeahead="o as o.cityConcatenatedName for o in vm.getLocationSuggestions($viewValue)" typeahead-on-select="vm.onSelect($item, $model, $label)" typeahead-loading="vm.loading" typeahead-no-results="vm.noResults" typeahead-show-hint="false" typeahead-editable="false">
+        <div class="spinner" ng-show="vm.loading"></div>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+            <li class="noresults" role="menuitem">{{::vm.STRINGS.NO_RESULTS}}</li>
+        </ul>
+    </div>
+</div>

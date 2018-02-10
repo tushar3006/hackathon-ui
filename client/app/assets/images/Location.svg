@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="25px" viewBox="0 0 21 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Location</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="2.Menu-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.-Menu" transform="translate(-59.000000, -42.000000)" stroke="#FFFFFF" stroke-width="2">
+            <g id="Location" transform="translate(56.000000, 39.000000)">
+                <path d="M4.15384615,13.4844227 C4.15384615,8.33128758 8.33128758,4.15384615 13.4844227,4.15384615 C18.6375579,4.15384615 22.8149993,8.33128758 22.8149993,13.4844227 C22.8149993,18.6375579 18.6375579,22.8149993 13.4844227,22.8149993 L5.15238129,22.8149993 C4.60090556,22.8149993 4.15384615,22.3649662 4.15384615,21.8164641 L4.15384615,13.4844229 Z" id="Combined-Shape" transform="translate(13.484423, 13.484423) rotate(-45.000000) translate(-13.484423, -13.484423) "></path>
+                <ellipse id="Oval-38" cx="13.5" cy="13.5" rx="3.11538462" ry="3.11538462"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

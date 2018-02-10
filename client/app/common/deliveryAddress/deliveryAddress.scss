@@ -1,0 +1,210 @@
+@import '../../_vars.scss';
+.deliveryAddress {
+    .md-select-value {
+        background: none !important;
+    }
+    .errorMessage {
+        color: #fff;
+    }
+    font-family: $roboto;
+    .tick1 {
+        position: absolute;
+        float: right;
+        top: 11.2%;
+        font-size: 21px;
+        color: #00CD7C;
+        left: 47%;
+    }
+    .tick2 {
+        position: absolute;
+        float: right;
+        top: 11.2%;
+        color: #00CD7C;
+        font-size: 23px;
+        right: 2%;
+        z-index: 100;
+    }
+    .head {
+        padding: 24px 32px;
+        .component {
+            font-size: 25px;
+            color: #000000;
+            font-weight: 700;
+            line-height: 24px;
+        }
+        button {
+            border: 2px dotted rgba(0, 0, 0, 0.11);
+            padding: 5px;
+            border-radius: 3px;
+            opacity: 0.9;
+            font-family: $roboto;
+            font-size: 16px;
+            font-weight: 400;
+            color: #F6A623;
+            line-height: 16px;
+            background: #fff;
+            /*height: 24px;*/
+        }
+    }
+    .body {
+        .addressType {
+            display: inline-block;
+            border: 1px solid #E1E1E1;
+            border-radius: 2px;
+            min-width: 115px;
+            font-size: 14px;
+            min-height: 40px;
+            background: #ffffff;
+            padding: 4px;
+            margin: 2px 3px;
+            padding: 10px 0;
+        }
+        .activeAddress {
+            border: 1px solid #25D976;
+            color: #25D976;
+            letter-spacing: 0;
+            // line-height: 20px;
+        }
+        .locationAuto {
+            .inputContainer {
+                padding-left: 0;
+                padding-right: 0;
+                border: 0;
+            }
+            input {
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            }
+            input:focus {
+                border-color: #fff;
+                outline: 0;
+                border: 0;
+                padding: 0 12px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            }
+        }
+        .activeAddress {
+            background: #FBFCFC;
+            border: 2px solid #00CD7C;
+            border-radius: 3px;
+        }
+        padding: 0px 32px;
+        margin: auto;
+        .left {
+            margin-right: 2%;
+            float: left;
+        }
+        form {
+            .selectOptions {
+                margin-bottom: 1rem;
+            }
+            .selectOptions .selectize-input {
+                height: 40px;
+                input {
+                    height: 20px;
+                }
+            }
+            font-size: 18px;
+            label {
+                font-weight: 500;
+                color: rgba(74, 73, 74, 0.50);
+            }
+            .col-md-12 {
+                padding: 0;
+            }
+            .selectOption {
+                background: rgba(243, 245, 245, 0.3);
+                padding: 4px 14px 8px 14px;
+                border: 1px solid #c7c7c7;
+                border-radius: 2px;
+                .md-select-value {
+                    border: 0;
+                }
+            }
+            .addressTypeWrapper {
+                margin: 12px 0;
+                display: inline-block;
+            }
+            input,
+            select {
+                background: rgba(243, 245, 245, 0.30);
+                border: 1px solid rgba(44, 44, 44, 0.10);
+                border-radius: 4px;
+                font-size: 16px;
+                height: 45px;
+                outline: 0;
+            }
+        }
+        .right {
+            margin-left: 2%;
+            float: right;
+        }
+        .buttons {
+            margin: 2% 0 4% 0;
+            .cancel {
+                background: #fff;
+                border: 0;
+                margin-top: 4%
+            }
+            .save {
+                background: #F28120;
+                border-radius: 3px;
+                color: #fff;
+                margin-top: 4%
+            }
+            button {
+                font-size: 20px;
+                height: 60px;
+                width: 20%;
+            }
+        }
+        #addressDetails {
+            textarea {
+                width: 100%;
+                padding: 10px 10px;
+                background: rgba(243, 245, 245, 0.31);
+                font-size: 18px;
+                color: rgba(74, 73, 74, 0.50);
+                border: 1px solid rgba(0, 0, 0, 0.07);
+                border-radius: 1px;
+                margin: 20px 0;
+            }
+        }
+        .components {
+            .component:hover {
+                cursor: pointer;
+            }
+            .component {
+                font-size: 16px;
+                display: inline-block;
+                background: rgba(243, 245, 245, 0.31);
+                border: 1px solid rgba(0, 0, 0, 0.07);
+                border-radius: 3px;
+                border-radius: 3px;
+                border-radius: 3px;
+                width: 47.8%;
+                margin-bottom: 2%;
+                .danger {
+                    font-size: 18px;
+                    color: #D0011B;
+                    font-weight: 600;
+                }
+                .address {
+                    display: inline-block;
+                    width: 100%;
+                }
+                .primary {
+                    font-size: 18px;
+                    color: #000000;
+                    font-weight: 600;
+                }
+                hr {
+                    margin: 2px;
+                }
+                div {
+                    padding: 2% 2%;
+                }
+            }
+        }
+    }
+}

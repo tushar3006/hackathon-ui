@@ -1,0 +1,9 @@
+.env
+.DS_Store
+.tmp
+.git
+node_modules
+.settings
+*.log
+dist/
+.idea

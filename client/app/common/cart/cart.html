@@ -1,0 +1,115 @@
+<div ng-class="{'showMobileCart': vm.showMobileCart}" class="cart">
+    <div class="cartMain">
+        <div class="cartMainInner">
+            <div class="header primaryBg">
+                <div class="items">
+                    <!--TODO-->
+                    Cart ({{vm.cart.cartItems.length || 0}} Items)
+                </div>
+                <div class="spacer"></div>
+                <div class="total">
+                    {{::vm.currencySymbol}}{{(vm.cart.payableAmount|number:2) || 0}}
+                </div>
+                <div ng-click="vm.dismissCart()" class="close">
+                    <i class="fa fa-close"></i>
+                </div>
+            </div>
+            <div ng-show="vm.cart.cartItems && vm.cart.cartItems.length > 0" class="cartItemList">
+                <div class="cartItem" ng-repeat="cartItem in vm.cart.cartItems">
+                    <div class="product">
+                        <div class="name">{{cartItem.itemName + (cartItem.itemVariantName ? '-'+cartItem.itemVariantName : '')  }}</span></div>
+                        <div class="quantityContainer">
+                            <div ng-class="{'invisible': cartItem.offeredPrice!==cartItem.itemTotalPrice}" ng-click="vm.decrease(cartItem)" class="btn btn-primary"><i class="fa fa-minus"></i></div>
+                            <div class="quantity">{{cartItem.itemQuantity}}</div>
+                            <div ng-class="{'invisible': cartItem.offeredPrice!==cartItem.itemTotalPrice}" ng-click="vm.increase(cartItem)" class="btn btn-primary"><i class="fa fa-plus"></i></div>
+                        </div>
+                        <div class="spacer"></div>
+                        <div class="price">{{cartItem.offeredPrice===0?'':vm.currencySymbol}}{{cartItem.offeredPrice===0?'FREE':cartItem.itemTotalPrice}}</div>
+                    </div>
+                    <div class="addonItem" ng-repeat="addon in cartItem.addons">
+                        <div class="product">
+                            <div class="name">{{addon.itemName}} - ( {{::vm.currencySymbol}}{{addon.itemTotalPrice}} )</div>
+                            <div class="quantityContainer">
+                                <div ng-click="vm.decrease(addon)" class="btn btn-primary"><i class="fa fa-minus"></i></div>
+                                <div class="quantity">[ {{addon.itemQuantity}} ]</div>
+                                <div ng-click="vm.increase(addon)" class="btn btn-primary"><i class="fa fa-plus"></i></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary">
+                    <div class="item">
+                        <div class="key">Subtotal</div>
+                        <div class="spacer"></div>
+                        <div class="value">{{::vm.currencySymbol}}{{vm.cart.subTotal || 0}}</div>
+                    </div>
+                    <div ng-if="vm.cart.totalDiscount > 0" class="item discount">
+                        <div class="key">Total Discount</div>
+                        <div class="spacer"></div>
+                        <div class="value">- {{::vm.currencySymbol}}{{vm.cart.totalDiscount}}</div>
+                    </div>
+                    <div class="item" ng-repeat="tax in vm.cart.taxes">
+                        <div class="key">{{tax.taxName}}</div>
+                        <div class="spacer"></div>
+                        <div class="value">{{::vm.currencySymbol}}{{tax.taxAmount || 0}}</div>
+                    </div>
+                </div>
+            </div>
+            <div ng-hide="vm.cart.cartItems && vm.cart.cartItems.length > 0" class="noItems">
+                <div><img ng-src="http://assets.limetray.com/assets/order-online/images/empty-cart.svg" alt=""></div>
+                <div class="bold">Your cart is empty.</div>
+                <div class="hint">Looks like you haven’t added any items yet.</div>
+            </div>
+
+            <div class="spacer"></div>
+            <div class="userDetails">
+                <div class="offerInput">
+                    <input type="text" class="form-control" placeholder="Coupon Code" ng-keydown="vm.applyCoupon($event)" ng-model="vm.couponCode" ng-disabled="vm.cart.offers">
+                    <div class="spacer"></div>
+                    <button class="btn btn-primary" ng-click="vm.applyCoupon()"  ng-if="!vm.cart.offers">Apply</button>
+                    <button class="btn btn-danger" ng-click="vm.removeOffer()" ng-if="vm.cart.offers">Remove</button>
+                </div>
+                <div class="totalContainer">
+                    <div class="key">Total</div>
+                    <div class="spacer"></div>
+                    <div class="value">{{::vm.currencySymbol}}{{vm.cart.payableAmount || 0}}</div>
+                </div>
+                <div class="orderInstructions">
+                    <div class="title" ng-click="vm.showDetails = !vm.showDetails">
+                        <span><i ng-class="!vm.showDetails?'fa fa-caret-right' : 'fa fa-caret-down'"></i>  Add Order Instructions (Optional) </span></div>
+                    <div class="textBox">
+                        <textarea rows="2" ng-blur="!vm.orderComment?vm.showDetails = 0:vm.showDetails =1" ng-show="vm.showDetails" ng-change="vm.updateOrderComment()" cols="50" placeholder="Enter order instructions if any ( Optional )" ng-model="vm.orderComment" autofocus></textarea>
+                    </div>
+                </div>
+                <div class="checkoutContainer text-center">
+                    <div ng-if="vm.selectedDeliveryAddress" class="text-left selectedAddress">
+                        <h4>Delivery Address: </h4>
+                        <div>
+                            {{vm.selectedDeliveryAddress.fullName || 'User Name' }}
+                        </div>
+                        <div>
+                            {{vm.selectedDeliveryAddress.mobile || 9805989951}}
+                        </div>
+                        <div>
+                            {{vm.selectedDeliveryAddress.address1}} {{vm.selectedDeliveryAddress.address2 + ', ' + vm.selectedDeliveryAddress.city}}
+                        </div>
+                    </div>
+                    <button class="btn" ng-click="vm.openDeliveryAddressModal()">
+                        <span ng-if="!vm.selectedDeliveryAddress"> Add Delivery Address </span>
+                        <span ng-if="vm.selectedDeliveryAddress"> Change Delivery Address </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="placeOrder text-center">
+            <button ng-click="vm.placeOrder()" class="btn btn-primary" ng-class="{'loading': vm.placingOrder , 'btn-disabled':(!vm.enablePlaceOrder || !vm.cart.cartItems.length>0) , 'btn-enabled' : (vm.enablePlaceOrder && vm.cart.cartItems.length>0)}" ng-disabled="!vm.enablePlaceOrder || !vm.cart.cartItems.length>0">Place Order</button>
+        </div>
+    </div>
+    <div class="cartLoader flex" ng-show="vm.showLoader">
+        <div class="spinner"></div>
+    </div>
+</div>

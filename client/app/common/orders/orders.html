@@ -1,0 +1,38 @@
+<div class="orders">
+    <div ng-show="vm.showLoader" class="spinner"></div>
+    <div ng-if="vm.showFetchOrdersError">{{::vm.STRINGS.FETCH_ORDERS_ERROR}}</div>
+    <uib-accordion>
+        <div uib-accordion-group class="panel-default" ng-repeat="order in vm.orders" is-open="status.open" template-url="group-template.html">
+            <uib-accordion-heading>
+                <div class="orderHeading row">
+					<i class="hidden-xs glyphicon primaryColor pull-left" ng-class="{'glyphicon-menu-down': status.open, 'glyphicon-menu-right': !status.open}"></i>
+					<div class="col-md-2 col-xs-3">{{::order.ltOrderId}}</div>
+					<div class="col-md-2 col-half-offset hidden-xs hidden-sm">
+						<div>Ordered at {{::order.clientCreationTime | date: 'hh:mm a'}}</div>
+						<div class="mute">{{::order.clientCreationTime | date: 'MMMM d'}}</div>
+					</div>
+					<div class="col-md-2 col-half-offset hidden-xs hidden-sm">{{::order.outlet.outletName}}<br><span class="mute">{{::order.outlet.cityName}}</span></div>
+					<div class="col-md-2 col-half-offset col-xs-3">{{::vm.currencySymbolCode}}{{::order.payableAmount}}</div>
+					<div class="col-md-1 col-half-offset col-xs-3">{{::order.currentState}}</div>
+				</div>
+            </uib-accordion-heading>
+            <order-box order="order" is-open="status.open"></order-box>
+        </div>
+    </uib-accordion>
+</div>
+<script type="text/ng-template" id="group-template.html">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <div style="cursor:pointer;" href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+                    <div uib-accordion-header>
+						{{heading}}
+					</div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-collapse collapse" uib-collapse="!isOpen">
+            <div class="panel-body" style="text-align: right" ng-transclude></div>
+        </div>
+    </div>
+</script>

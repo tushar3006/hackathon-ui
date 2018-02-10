@@ -1,0 +1,86 @@
+@import '../../_vars.scss';
+.modal-take-order {
+    margin-top: 50% !important;
+    padding: 0 10%;
+    @media #{$desktop} {
+        margin-top: 6% !important;
+    }
+}
+
+.errorMessage {
+    text-align: center;
+    margin: 1.5rem 0;
+    background: #C9021A;
+    padding: 0.8rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    i {
+        margin-right: 1rem;
+    }
+}
+
+.md-select-menu-container {
+    z-index: 9999;
+}
+
+.location {
+    .locationItem {
+        border: 1px solid #E1E1E1;
+        border-radius: 2px;
+        min-width: 175px;
+        height: 40px;
+        background: #ffffff;
+        padding: 4px;
+        margin: 2px 3px;
+        max-width: 175px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .activeLocation {
+        border: 1px solid #25D976;
+        ;
+        color: #25D976;
+        letter-spacing: 0;
+        line-height: 20px;
+    }
+}
+
+.takeOrder {
+ 
+    .locationSelector {
+        display: inline-block;
+        width: 100%;
+    }
+    .takeOrderData {
+        font-size: 16px;
+        .section {
+            margin: 10px 0;
+        }
+    }
+    .sideArrow {
+        background: $takeOrderPrimaryBg;
+        display: inline-block;
+        width: 15%;
+        height: $takeOrderInputHeightSmall;
+        @media #{$desktop} {
+            height: $takeOrderInputHeightLarge;
+        }
+        vertical-align: top;
+        float: right;
+        img {
+            height: 60%;
+            margin: 18% 0;
+            width: 60%;
+            display: inline-block;
+        }
+    }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+}

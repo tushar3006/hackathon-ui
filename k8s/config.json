@@ -1,0 +1,131 @@
+{
+	"autoConfig": true,
+	"version": "1.0.0",
+	"port": 3000,
+	"isDashboard": true,
+	"environment": [{
+			"name": "NODE_ENV",
+			"value": "{{namespace}}"
+		},
+		{
+			"name": "NODE_PORT",
+			"value": "3000"
+		},
+		{
+			"name": "title",
+			"value": "ccv1"
+		},
+		{
+            "name" : "DB_CONNECTION_STRING",
+            "valueFrom" : {
+                "secretKeyRef": {
+                    "name" : "limetray-mongo",
+                    "key" : "connectionstring"
+                }
+            }
+        },
+        {
+            "name": "DB_USERNAME",
+            "valueFrom":{
+                "secretKeyRef":{
+                    "name": "order-online-service",
+                    "key": "dbusername"
+                }
+            }
+        },
+        {
+            "name": "DB_NAME",
+            "valueFrom":{
+                "secretKeyRef":{
+                    "name": "order-online-service",
+                    "key": "dbname"
+                }
+            }
+        },
+        {
+            "name": "DB_PASSWORD",
+            "valueFrom":{
+                "secretKeyRef":{
+                    "name": "order-online-service",
+                    "key": "dbpassword"
+                }
+            }
+        },
+		{
+			"name": "OO_SOURCE",
+			"value": "25"
+		},
+		{
+			"name": "BRAND_DOMAIN",
+			"value": "http://outlet-service"
+		},
+		{
+			"name": "USER_DOMAIN",
+			"value": "http://people-service"
+		},
+		{
+			"name": "GL_DOMAIN",
+			"value": "http://geo-location-service"
+		},
+		{
+			"name": "ORDER_DOMAIN",
+			"value": "http://order-service"
+		},
+		{
+			"name": "CART_DOMAIN",
+			"value": "http://ecommerce-service"
+		},
+		{
+			"name": "CORE_DOMAIN",
+			"valueFrom":{
+				"secretKeyRef":{
+					"name": "order-online-service",
+					"key": "coredomain"
+				}
+			}
+		},
+		{
+			"name": "MENU_DOMAIN",
+			"value": "http://menu-aggregator-service"
+		},
+		{
+			"name": "LOGO_ASSET_PATH",
+			"value": "http://assets.limetray.com/assets/user_images/logos/original/"
+		},
+		{
+			"name": "DELIVERY_SERVICE_ID",
+			"value": "2"
+		},
+		{
+			"name": "TAKEAWAY_SERVICE_ID",
+			"value": "1"
+		},
+		{
+			"name": "CORE_API_KEY",
+			"valueFrom": {
+				"secretKeyRef": {
+					"name": "order-online-service",
+					"key": "coreapikey"
+				}
+			}
+		},
+		{
+			"name": "OO_DOMAIN",
+			"valueFrom": {
+				"secretKeyRef": {
+					"name": "oom-service",
+					"key": "oodomain"
+				}
+			}
+		},
+		{
+			"name": "CHANNEL_ID",
+			"value": "26"
+		}
+	],
+	"tier": "frontend",
+	"owner": "tushar",
+	"labels": {
+		"group": "oo"
+	}
+}

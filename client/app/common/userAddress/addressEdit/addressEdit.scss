@@ -1,0 +1,65 @@
+@import '../../../_vars.scss';
+.addressEdit {
+	position: relative;
+	margin: 2.4rem;
+	font-size: 1.4rem;
+	.header {
+		font-weight: bold;
+		margin-bottom: 2rem;
+	}
+	.selectOptions {
+		margin-bottom: 1rem;
+	}
+	.close-button {
+		position: relative;
+		right: -0.3em;
+		top: -0.3em;
+		float: right;
+		font-size: 20px;
+		font-weight: bold;
+		-webkit-text-shadow: 0 1px 0 #ffffff;
+		text-shadow: 0 1px 0 #ffffff;
+		opacity: 0.8;
+		padding: 0;
+		cursor: pointer;
+		background: transparent;
+		border: 0;
+		-webkit-appearance: none;
+		&:hover,
+		&:focus {
+			color: #000000;
+			text-decoration: none;
+			cursor: pointer;
+			opacity: 0.4;
+		}
+	}
+	.form-group {
+		margin-top: 1rem;
+	}
+
+	.tagContainer {
+		margin-top: 1rem;
+		// display: flex;
+		// align-items: center;
+		// .radio {
+		// 	input[type="radio"] {
+		// 		display: none;
+		// 	}
+		// 	label {
+		// 		display: block;
+		// 	}
+		// }
+		.btn {
+			margin-right: 1rem;
+			border-radius: 0;
+			background: rgba(243,245,245,0.31);
+			border: 1px solid rgba(44,44,44,0.10);
+			border-radius: 1px;
+			color: #2D2D2D;
+			&.active {
+				color: #000;
+				border-color: $primaryBg;
+			}
+		}
+	}
+}

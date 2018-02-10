@@ -1,0 +1,331 @@
+@import '../../_vars.scss';
+.cart {
+    .cartMain {
+        display: flex;
+        flex-direction: column;
+        height: 78vh !important;
+        overflow: auto;
+        .cartMainInner {
+            display: flex;
+            height:100%;
+            flex-direction: column;
+        }
+    }
+    .buttons {
+        height: 7vh !important;
+    }
+    .cartLoader {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        .spinner {
+            @media #{$desktop} {
+                height: 4rem;
+                width: 4rem;
+            }
+        }
+    }
+    .orderInstructions {
+        margin: 0 25px 0 20px;
+        textarea {
+            width: 100%;
+            padding: 10px 10px;
+            background: rgba(243, 245, 245, 0.31);
+            font-size: 14px;
+            color: rgba(74, 73, 74, 0.50);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 1px;
+            margin: 10px 0px;
+        }
+        .title {
+            color: #05CC7F;
+            font-size: 14px;
+        }
+        .textBox {}
+    }
+    display: none;
+    &.showMobileCart {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1050;
+        flex-direction: column;
+    }
+    @media #{$desktop} {
+        display: block;
+    }
+    position: relative;
+    border-radius: 3px 3px 0 0;
+    box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.07);
+    background: #FFFFFF;
+    .selectedAddress {
+        font-size: 14px;
+        padding: 5px 20px;
+    }
+    .placeOrder {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        button {
+            // position:absolute;
+            bottom: 0;
+            margin: 5px 0 0 0;
+            background: #B0B0B0;
+            width: 100%;
+            min-height: 50px;
+            font-size: 18px;
+            color: #FFFFFF;
+            line-height: 20px;
+        }
+        button:hover {
+            background: #B0B0B0;
+        }
+    }
+    .checkoutContainer {
+        button {
+            // position:absolute;
+            outline: 0;
+            box-shadow: none;
+            background: #fff;
+            border: 1px solid #BDBDBD;
+            width: 90%;
+            margin: 5px 0;
+            color: $primaryBg;
+            min-height: 40px;
+        }
+    }
+    .header {
+        font-family: $roboto;
+        font-size: 1.8rem;
+        min-height:50px;
+        height:50px;
+        padding: 0.5rem;
+        display: flex;
+        color: $removeTextColor;
+        background: #FFFFFF;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+        justify-content: center;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #424242;
+        letter-spacing: 0;
+        line-height: 20px;
+        max-height: 70px;
+        .items {
+            padding: 13px 0;
+        }
+        .total {
+            padding: 13px 0;
+        }
+        .close {
+            opacity: 1;
+            color: #fff;
+            margin-left: 2rem;
+            @media #{$desktop} {
+                display: none;
+            }
+        }
+    }
+    .noItems {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-grow: 1;
+        @media #{$desktop} {
+            min-height: 25vh;
+            flex-grow: 1;
+            // flex-grow: initial;
+        }
+        font-size: 1.3rem;
+        .fa {
+            color: #000;
+        }
+        .bold {
+            font-weight: bold;
+            margin-top: 1rem;
+            font-size: 1.6rem;
+        }
+        .hint {
+            margin-top: 1rem;
+            color: #909090;
+        }
+    }
+    .cartItemList {
+        // height: 25vh;
+        flex-grow: 1;
+        margin-top: 5px;
+        // overflow-x: hidden;
+        // overflow-y: visible;
+        font-size: 1.3rem;
+        .cartItem:nth-child(odd) {
+            background: #f7f7f7;
+        }
+        .cartItem {
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(151, 151, 151, 0.16);
+            // padding-bottom: 1rem;
+            margin: 0 10px;
+            .customize {
+                padding: 1rem 1rem 0 0;
+                > span {
+                    font-size: 1.1rem;
+                    background-color: #6B412F;
+                    color: #fff;
+                    // padding: 0.5rem;
+                    cursor: pointer;
+                    border-radius: 3px;
+                }
+            }
+            .product {
+                display: flex;
+                color: #2D2D2D;
+                // padding: 1rem;
+                padding-top: 0;
+                margin: 1rem;
+                margin-bottom: 0;
+                .name {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                }
+                .quantityContainer {
+                    // width: 33%;
+                    display: flex;
+                    align-items: center;
+                    .hoverBtn {
+                        min-width: 20px;
+                        color: $primaryBg;
+                        padding: 0;
+                    }
+                    .btn-primary {
+                        font-size: 1.2rem;
+                        padding: 0.1rem 0.5rem;
+                    }
+                    .quantity {
+                        padding: 0 1rem;
+                    }
+                    .price {}
+                }
+            }
+            .addonItem {
+                .btn {
+                    visibility: hidden;
+                }
+                .product {
+                    // padding: 0.5rem;
+                    padding-top: 0.5rem;
+                    padding-bottom: 0.5rem;
+                    .name {
+                        padding-left: 1rem;
+                        margin-right: -0.7rem;
+                    }
+                }
+            }
+        }
+    }
+    .summary {
+        padding: 2rem;
+        padding-bottom: 1rem;
+        border-top: 1px solid rgba(151, 151, 151, 0.16);
+        .item {
+            margin: 1rem 0;
+            display: flex;
+            font-size: 1.2rem;
+            .value {
+                text-align: right;
+            }
+        }
+    }
+    .offerInput {
+        padding: 2rem;
+        padding-top: 0;
+        border-bottom: 1px solid rgba(151, 151, 151, 0.16);
+        display: flex;
+        >input {
+            width: 50%;
+        }
+    }
+    .totalContainer {
+        font-weight: bold;
+        padding: 2rem;
+        font-size: 1.3rem;
+        display: flex;
+    }
+    .proceed {
+        cursor: pointer;
+        height: 6rem;
+        font-family: $roboto;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        &:hover {
+            background-color: #C56400;
+        }
+    }
+    .loader {
+        position: absolute;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+.mobileCartFooter {
+    @media #{$desktop} {
+        display: none;
+    }
+    display: flex;
+    height: 6rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+    .details {
+        padding-left: 1rem;
+        font-size: 1.4rem;
+        align-items: center;
+        position: relative;
+        .badge {
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            background-color: #6B412F;
+        }
+        .orderTotalContainer {
+            margin-left: 2rem;
+            .orderTotal {
+                font-size: 1.2rem;
+            }
+            .total {
+                font-family: $roboto;
+                font-size: 2rem;
+            }
+        }
+    }
+    #checkoutBtn {
+        font-family: $roboto;
+        font-size: 1.8rem;
+        font-weight: normal;
+        height: 100%;
+        border: none;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        letter-spacing: 0.15rem;
+        border: 0px;
+        &:hover {
+            border: 0px;
+        }
+    }
+}

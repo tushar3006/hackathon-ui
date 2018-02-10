@@ -1,0 +1,45 @@
+<div class="orderBox">
+    <div class="orderBoxContainer flex">
+        <div class="itemContainer">
+            <div class="item flex header">
+                <div class="name">Item</div>
+                <div>Qty</div>
+                <div class="spacer"></div>
+                <div>Price</div>
+            </div>
+            <div class="item flex" ng-repeat="item in vm.order.orderItems">
+                <div class="name">{{item.itemName}}</div>
+                <div>{{item.itemQuantity}}</div>
+                <div class="spacer"></div>
+                <div>{{::vm.currencySymbolCode}}{{item.itemPrice}}</div>
+            </div>
+            <div class="spacer"></div>
+            <div class="summary primaryColor">
+                Grand Total {{::vm.currencySymbolCode}} {{vm.order.payableAmount}}
+            </div>
+        </div>
+        <div class="trackerContainer">
+            <div>
+                <div class="status">Order {{vm.order.currentState}}</div>
+                <div class="query">For Queries&nbsp;<span class="number">Call 044 292929</span></div>
+				<order-tracker current-state="vm.order.currentState.toUpperCase()"></order-tracker>
+            </div>
+            <div class="flex addressContainer">
+                <div class="address deliveryAddress">
+                    <div class="header">Delivery Address</div>
+					<div class="addressText">
+						<div class="addressItem">{{vm.order.orderCustomer.fullName}}</div>
+						<div class="addressItem">{{vm.order.orderCustomer.address}}</div>
+					</div>
+                </div>
+                <div class="address outletAddress">
+                    <div class="header">Outlet Address</div>
+					<div class="addressText">
+						<div class="addressItem">{{vm.order.outlet.outletName}}</div>
+						<div class="addressItem">{{vm.order.outlet.cityName}}</div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

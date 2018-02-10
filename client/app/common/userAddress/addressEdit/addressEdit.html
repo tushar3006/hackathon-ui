@@ -1,0 +1,35 @@
+<div class="addressEdit">
+    <button ng-click="vm.dismiss()" class="close-button">&times;</button>
+    <div class="header">{{::vm.STRINGS.ENTER_ADDRESS}}</div>
+    <form name="addressForm" autocomplete="on" ng-submit="vm.submitAddress()" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : addressForm.address1.$invalid && !addressForm.address1.$pristine }">
+            <input ng-minlength="1" name="address1" type="text" class="form-control" placeholder="{{::vm.STRINGS.ADDRESS_1}}" ng-model="vm.address.address1" required>
+            <div ng-show="addressForm.address1.$invalid && !addressForm.address1.$pristine" class="help-block">{{::vm.STRINGS.ADDRESS_1_VALIDATION}}</div>
+        </div>
+        <!--<div class="form-group" ng-class="{ 'has-error' : addressForm.address2.$invalid && !addressForm.address2.$pristine }">
+			<input ng-minlength="1" name="address2" type="text" class="form-control" placeholder="{{::vm.STRINGS.ADDRESS_2}}" ng-model="vm.address.address2" required>
+			<div ng-show="addressForm.address2.$invalid && !addressForm.address2.$pristine" class="help-block">{{::vm.STRINGS.ADDRESS_2_VALIDATION}}</div>
+		</div>-->
+        <ui-select ng-disabled="vm.cityDisabled" on-select="vm.onCitySelected($item, $model)" ng-model="vm.address.city" theme="selectize" ng-disabled="" class="selectOptions" title="{{::vm.STRINGS.SELECT_CITY_PLACEHOLDER}}">
+            <ui-select-no-choice>
+                <div style="text-align: center;">{{::vm.STRINGS.NO_RESULTS}}</div>
+            </ui-select-no-choice>
+            <ui-select-match placeholder="{{::vm.STRINGS.SELECT_CITY_PLACEHOLDER}}">{{$select.selected.cityName}}</ui-select-match>
+            <ui-select-choices repeat="city in vm.cities | filter:  { cityName: $select.search } | orderBy: 'cityName'">
+                <div ng-bind-html="city.cityName | highlight: $select.search"></div>
+            </ui-select-choices>
+        </ui-select>
+        <location-autocomplete selected-address="vm.address.locality" disabled="vm.addressSearchDisabled" class="selectOptions" on-select-address="vm.onSelectAddress(item, model, label)" city="vm.address.city" placeholder="vm.STRINGS.SELECT_LOCALITY_PLACEHOLDER">
+        </location-autocomplete>
+        <div class="tagContainer">
+			<div class="btn-group">
+				<label class="btn btn-success" ng-model="vm.address.addressType" uib-btn-radio="'Home'">Home</label>
+				<label class="btn btn-success" ng-model="vm.address.addressType" uib-btn-radio="'Work'">Work</label>
+				<label class="btn btn-success" ng-model="vm.address.addressType" uib-btn-radio="'Other'">Other</label>
+			</div>
+        </div>
+        <div class="form-group">
+            <input ng-disabled="addressForm.$invalid || !vm.address.locality" type="submit" value="{{::vm.STRINGS.SAVE}}" class="btn btn-primary">
+        </div>
+    </form>
+</div>

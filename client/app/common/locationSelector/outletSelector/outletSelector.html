@@ -1,0 +1,13 @@
+<div class="outletSelector">
+  <button class="close" ng-click="vm.dismiss()">&times;</button>
+  <h1>{{::vm.STRINGS.SELECT_OUTLET_PLACEHOLDER}}</h1>
+  <div>
+    {{::vm.STRINGS.ALL_OUTLETS}}{{vm.city.cityName}}
+  </div>
+  <div class="outletsContainer">
+    <div ng-click="vm.close({$value:outlet})" class="outlet" ng-repeat="outlet in vm.outlets">
+      <div class="outletName"><div>{{outlet.outletName.toLowerCase()}}</div></div>
+      <div class="outletAddress"><div>{{outlet.address.toLowerCase()}}</div></div>
+    </div>
+  </div>
+</div>
